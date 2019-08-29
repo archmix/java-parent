@@ -53,8 +53,8 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.github.mrbraztech</groupId>
-			<artifactId>java8-parent</artifactId>
-			<version>master-SNAPSHOT</version>
+			<artifactId>${project.artifactId}</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
 
