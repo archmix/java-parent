@@ -14,6 +14,7 @@
 		<lombokVersion>1.18.6</lombokVersion>
 		<junitVersion>4.11</junitVersion>
 		<mockitoVersion>1.10.8</mockitoVersion>
+		<github.global.server>github</github.global.server>
 
 		<maven.failsafe.pluginVersion>2.18.1</maven.failsafe.pluginVersion>
 		<maven.javadoc.pluginVersion>2.10.1</maven.javadoc.pluginVersion>
@@ -22,6 +23,8 @@
 		<maven.resources.pluginVersion>2.7</maven.resources.pluginVersion>
 		<maven.dependency.pluginVersion>2.10</maven.dependency.pluginVersion>
 		<maven.relase.pluginVersion>2.5.3</maven.relase.pluginVersion>
+		<maven.deploy.pluginVersion>2.8.1</maven.deploy.pluginVersion>
+		<site.maven.pluginVersion>0.12</site.maven.pluginVersion>
 	</properties>
 
 	<dependencyManagement>
@@ -125,10 +128,9 @@
 						<tagNameFormat>v@{project.version}</tagNameFormat>
 					</configuration>
 				</plugin>
-
 				<plugin>
 					<artifactId>maven-deploy-plugin</artifactId>
-					<version>2.8.1</version>
+					<version>${maven.deploy.pluginVersion}</version>
 					<configuration>
 						<altDeploymentRepository>internal.repo::default::file://${project.build.directory}/maven-repo</altDeploymentRepository>
 					</configuration>
@@ -140,7 +142,7 @@
 			<plugin>
 				<groupId>com.github.github</groupId>
 				<artifactId>site-maven-plugin</artifactId>
-				<version>0.11</version>
+				<version>${site.maven.pluginVersion}</version>
 				<configuration>
 					<message>Deploy maven artifacts for ${project.version}</message>
 					<noJekyll>true</noJekyll>
