@@ -136,10 +136,21 @@
 		<tag>v${project.version}</tag>
 	</scm>
 
-	<repositories>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>cloudsmith</id>
+			<url>https://maven.cloudsmith.io/mrbraztech/oss/</url>
+		</snapshotRepository>
 		<repository>
 			<id>cloudsmith</id>
-			<url>https://dl.cloudsmith.io/public/mrbraz-tech/maven-repo/maven/</url>
+			<url>https://maven.cloudsmith.io/mrbraztech/oss/</url>
+		</repository>
+	</distributionManagement>
+
+	<repositories>
+		<repository>
+			<id>mrbraztech-oss</id>
+			<url>https://dl.cloudsmith.io/public/mrbraztech/oss/maven/</url>
 			<releases>
 				<enabled>true</enabled>
 				<updatePolicy>always</updatePolicy>

@@ -5,7 +5,7 @@
   <servers>
     <server>
       <id>cloudsmith</id>
-      <username>anderson-braz</username>
+      <username>${env.REPO_USER_NAME}</username>
       <password>${env.REPO_API_KEY}</password>
     </server>
   </servers>
