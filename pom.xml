@@ -14,7 +14,6 @@
 		<lombokVersion>1.18.6</lombokVersion>
 		<junitVersion>4.11</junitVersion>
 		<mockitoVersion>1.10.8</mockitoVersion>
-		<github.global.server>github</github.global.server>
 
 		<maven.failsafe.pluginVersion>2.18.1</maven.failsafe.pluginVersion>
 		<maven.javadoc.pluginVersion>2.10.1</maven.javadoc.pluginVersion>
@@ -23,8 +22,6 @@
 		<maven.resources.pluginVersion>2.7</maven.resources.pluginVersion>
 		<maven.dependency.pluginVersion>2.10</maven.dependency.pluginVersion>
 		<maven.relase.pluginVersion>2.5.3</maven.relase.pluginVersion>
-		<maven.deploy.pluginVersion>2.8.1</maven.deploy.pluginVersion>
-		<site.maven.pluginVersion>0.12</site.maven.pluginVersion>
 	</properties>
 
 	<dependencyManagement>
@@ -52,6 +49,14 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.github.mrbraztech</groupId>
+			<artifactId>java8-parent</artifactId>
+			<version>master-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<pluginManagement>
@@ -128,42 +133,8 @@
 						<tagNameFormat>v@{project.version}</tagNameFormat>
 					</configuration>
 				</plugin>
-				<plugin>
-					<artifactId>maven-deploy-plugin</artifactId>
-					<version>${maven.deploy.pluginVersion}</version>
-					<configuration>
-						<altDeploymentRepository>internal.repo::default::file://${project.build.directory}/maven-repo</altDeploymentRepository>
-					</configuration>
-				</plugin>
 			</plugins>
 		</pluginManagement>
-
-		<plugins>
-			<plugin>
-				<groupId>com.github.github</groupId>
-				<artifactId>site-maven-plugin</artifactId>
-				<version>${site.maven.pluginVersion}</version>
-				<configuration>
-					<message>Deploy maven artifacts for ${project.version}</message>
-					<noJekyll>true</noJekyll>
-					<outputDirectory>${project.build.directory}/maven-repo</outputDirectory>
-					<branch>refs/heads/gh-pages</branch>
-					<includes>
-						<include>**/*</include>
-					</includes>
-					<repositoryName>skynet</repositoryName>
-					<repositoryOwner>mrbraztech</repositoryOwner>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>site</goal>
-						</goals>
-						<phase>deploy</phase>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
 	</build>
 
 	<scm>
@@ -173,16 +144,10 @@
 		<tag>v${project.version}</tag>
 	</scm>
 
-	<distributionManagement>
+	<repositories>
 		<repository>
-			<id>local-repo</id>
-			<name>local-repo</name>
-			<url>file://${project.build.directory}/maven-repo</url>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
 		</repository>
-		<snapshotRepository>
-			<id>local-repo</id>
-			<name>local-repo</name>
-			<url>file://${project.build.directory}/maven-repo</url>
-		</snapshotRepository>
-	</distributionManagement>
+	</repositories>
 </project>
