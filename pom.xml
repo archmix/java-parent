@@ -50,14 +50,6 @@
 		</dependencies>
 	</dependencyManagement>
 
-	<dependencies>
-		<dependency>
-			<groupId>com.github.mrbraztech</groupId>
-			<artifactId>${project.artifactId}</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-	</dependencies>
-
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -146,8 +138,16 @@
 
 	<repositories>
 		<repository>
-			<id>jitpack.io</id>
-			<url>https://jitpack.io</url>
+			<id>cloudsmith</id>
+			<url>https://dl.cloudsmith.io/public/mrbraz-tech/maven-repo/maven/</url>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
 		</repository>
 	</repositories>
 </project>
