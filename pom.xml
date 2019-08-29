@@ -147,7 +147,7 @@
 					<message>Deploy maven artifacts for ${project.version}</message>
 					<noJekyll>true</noJekyll>
 					<outputDirectory>${project.build.directory}/maven-repo</outputDirectory>
-					<branch>refs/heads/maven-repo</branch>
+					<branch>refs/heads/gh-pages</branch>
 					<includes>
 						<include>**/*</include>
 					</includes>
