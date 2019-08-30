@@ -146,19 +146,4 @@
 			<url>https://maven.cloudsmith.io/mrbraztech/oss/</url>
 		</repository>
 	</distributionManagement>
-
-	<repositories>
-		<repository>
-			<id>mrbraztech-oss</id>
-			<url>https://dl.cloudsmith.io/public/mrbraztech/oss/maven/</url>
-			<releases>
-				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
-			</snapshots>
-		</repository>
-	</repositories>
 </project>
