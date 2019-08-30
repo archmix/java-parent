@@ -39,6 +39,8 @@ workflows:
               ignore:
                 - gh-pages
       - release:
+          requires:
+             - build
           filters:
             branches:
               only: master
