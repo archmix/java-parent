@@ -12,9 +12,9 @@ jobs:
     steps:
       - checkout
 
-      - run: mvn clean package
+      - run: mvn -s settings.xml clean deploy
       
-  deploy:
+  release:
     docker: 
       - image: circleci/openjdk:8-jdk
       
@@ -25,7 +25,7 @@ jobs:
       
       - checkout
 
-      - run: mvn clean deploy -s settings.xml
+      - run: mvn -B -s settings.xml release:clean release:prepare release:perform -DignoreSnapshots=true
 
 workflows:
   version: 2
@@ -36,9 +36,7 @@ workflows:
             branches:
               ignore:
                 - gh-pages
-      - deploy:
-          requires:
-            - build
+      - release:
           filters:
             branches:
               only: master
