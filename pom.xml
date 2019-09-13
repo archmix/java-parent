@@ -4,7 +4,7 @@
 
 	<groupId>tech.mrbraz</groupId>
 	<artifactId>java8-parent</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<properties>
@@ -132,7 +132,7 @@
 
 	<scm>
 		<developerConnection>scm:git:ssh://git@github.com/mrbraztech/${project.artifactId}.git</developerConnection>
-	  <tag>java8-parent-1.0.0</tag>
+	  <tag>HEAD</tag>
   </scm>
 
 	<distributionManagement>
