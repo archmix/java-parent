@@ -123,7 +123,6 @@
 						<allowTimestampedSnapshots>true</allowTimestampedSnapshots>
 						<autoVersionSubmodules>true</autoVersionSubmodules>
 						<remoteTagging>false</remoteTagging>
-						<pushChanges>false</pushChanges>
 						<scmCommentPrefix>[skip ci]</scmCommentPrefix>
 						<tagNameFormat>v@{project.version}</tagNameFormat>
 					</configuration>
@@ -131,6 +130,13 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+
+	<scm>
+		<connection>scm:git:ssh://github.com/mrbraztech/${project.artifactId}.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/mrbraztech/${project.artifactId}.git</developerConnection>
+		<url>https://github.com/mrbraztech/${project.artifactId}</url>
+		<tag>v${project.version}</tag>
+	</scm>
 
 	<distributionManagement>
 		<snapshotRepository>
