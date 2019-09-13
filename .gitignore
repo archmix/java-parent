@@ -6,6 +6,7 @@
 .idea
 *.versionsBackup
 release.properties
+*.releaseBackup
 
 maven-repo
 target/
@@ -19,3 +20,4 @@ target/
 **/*.versionsBackup
 **/target/
 **/maven-repo
+**/*.releaseBackup
