@@ -4,7 +4,7 @@
 
 	<groupId>tech.mrbraz</groupId>
 	<artifactId>java8-parent</artifactId>
-	<version>1.0.2-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<properties>
@@ -124,20 +124,13 @@
 						<autoVersionSubmodules>true</autoVersionSubmodules>
 						<remoteTagging>false</remoteTagging>
 						<pushChanges>false</pushChanges>
-						<scmCommentPrefix>[maven-release-plugin] [skip ci] </scmCommentPrefix>
+						<scmCommentPrefix>[skip ci]</scmCommentPrefix>
 						<tagNameFormat>v@{project.version}</tagNameFormat>
 					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
-
-	<scm>
-		<connection>scm:git:ssh://github.com/mrbraztech/${project.artifactId}.git</connection>
-		<developerConnection>scm:git:ssh://git@github.com/mrbraztech/${project.artifactId}.git</developerConnection>
-		<url>https://github.com/mrbraztech/${project.artifactId}</url>
-		<tag>v${project.version}</tag>
-	</scm>
 
 	<distributionManagement>
 		<snapshotRepository>
