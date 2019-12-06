@@ -32,14 +32,15 @@ jobs:
 workflows:
   version: 2
   build-deploy:
-    context: Archmix Maven
     jobs:
       - build:
+          context: Archmix Maven
           filters:
             branches:
               ignore:
                 - gh-pages
       - release:
+          context: Archmix Maven
           requires:
              - build
           filters:
