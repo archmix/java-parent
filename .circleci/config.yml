@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - checkout
-
+      - run: curl https://raw.githubusercontent.com/archmix/infra-maven/master/settings.xml >> settings.xml
       - run: mvn -s settings.xml clean deploy
       
   release:
