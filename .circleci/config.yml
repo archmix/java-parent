@@ -12,7 +12,7 @@ jobs:
     steps:
       - checkout
 
-      - run: mvn deploy -Dregistry=https://maven.pkg.github.com/archmix -Dtoken=$GITHUB_REGISTRY_TOKEN
+      - run: mvn -s settings.xml deploy
       
   release:
     docker: 

@@ -139,4 +139,12 @@
     <url>https://github.com/mrbraztech/${project.artifactId}</url>
     <tag>v${project.version}</tag>
   </scm>
+
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/archmix</url>
+    </repository>
+  </distributionManagement>
 </project>
