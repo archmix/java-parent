@@ -141,10 +141,13 @@
   </scm>
 
   <distributionManagement>
+    <snapshotRepository>
+      <id>cloudsmith</id>
+      <url>https://maven.cloudsmith.io/archmix/oss/</url>
+    </snapshotRepository>
     <repository>
-      <id>github</id>
-      <name>GitHub Apache Maven Packages</name>
-      <url>https://maven.pkg.github.com/archmix</url>
+      <id>cloudsmith</id>
+      <url>https://maven.cloudsmith.io/archmix/oss/</url>
     </repository>
   </distributionManagement>
 </project>
