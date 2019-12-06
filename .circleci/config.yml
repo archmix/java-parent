@@ -12,7 +12,7 @@ jobs:
     steps:
       - checkout
 
-      - run: mvn -s settings.xml clean deploy
+      - run: mvn deploy -Dregistry=https://maven.pkg.github.com/archmix -Dtoken=${env.GITHUB_REGISTRY_TOKEN}
       
   release:
     docker: 
@@ -25,7 +25,7 @@ jobs:
       
       - checkout
       
-      - run: git config user.email "ci@mrbraz.tech"
+      - run: git config user.email "ci@archmix.org"
       - run: git config user.name "Circle CI"
       - run: mvn -B -s settings.xml release:clean release:prepare release:perform -DignoreSnapshots=true
 

@@ -5,12 +5,13 @@
 .settings/
 .idea
 *.versionsBackup
+*.iml
 release.properties
-*.releaseBackup
 
 maven-repo
 target/
 
+**/*.iml
 **/.project
 **/.classpath
 **/.factorypath
@@ -20,4 +21,3 @@ target/
 **/*.versionsBackup
 **/target/
 **/maven-repo
-**/*.releaseBackup

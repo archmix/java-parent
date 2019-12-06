@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>tech.mrbraz</groupId>
+  <groupId>archmix</groupId>
   <artifactId>java-parent</artifactId>
-  <version>1.9-SNAPSHOT</version>
+  <version>1.8-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
@@ -20,6 +20,7 @@
     <maven.resources.pluginVersion>2.7</maven.resources.pluginVersion>
     <maven.dependency.pluginVersion>2.10</maven.dependency.pluginVersion>
     <maven.relase.pluginVersion>2.5.3</maven.relase.pluginVersion>
+    <maven.source.pluginVersion>3.2.0</maven.source.pluginVersion>
   </properties>
 
   <dependencyManagement>
@@ -46,32 +47,33 @@
   </dependencyManagement>
 
   <build>
-    <pluginManagement>
       <plugins>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>${maven.compiler.pluginVersion}</version>
           <configuration>
             <source>${javaVersion}</source>
             <target>${javaVersion}</target>
-            <compilerArgs>
-              <arg>-Acodetrans.output=${project.basedir}/src/main</arg>
-            </compilerArgs>
           </configuration>
         </plugin>
 
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-resources-plugin</artifactId>
           <version>${maven.resources.pluginVersion}</version>
         </plugin>
 
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-dependency-plugin</artifactId>
           <version>${maven.dependency.pluginVersion}</version>
         </plugin>
 
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-source-plugin</artifactId>
+          <version>${maven.source.pluginVersion}</version>
           <executions>
             <execution>
               <id>attach-sources</id>
@@ -83,7 +85,9 @@
         </plugin>
 
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
+          <version>${maven.javadoc.pluginVersion}</version>
           <executions>
             <execution>
               <id>attach-javadocs</id>
@@ -95,11 +99,13 @@
         </plugin>
 
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>${maven.surefire.pluginVersion}</version>
         </plugin>
 
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-failsafe-plugin</artifactId>
           <version>${maven.failsafe.pluginVersion}</version>
           <executions>
@@ -125,7 +131,6 @@
           </configuration>
         </plugin>
       </plugins>
-    </pluginManagement>
   </build>
 
   <scm>
