@@ -1,7 +1,5 @@
-name: Java CI
-
+name: Maven CI
 on: [push]
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,5 +11,7 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Maven
-      run: mvn deploy -Dregistry=https://maven.pkg.github.com/archmix -Dtoken=${{ secrets.GITHUB_TOKEN }}
-      
+      env:
+        GITHUB_USERNAME: x-access-token
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: mvn deploy -s settings.xml
