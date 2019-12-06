@@ -1,12 +1,12 @@
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+					xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+					xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
                       https://maven.apache.org/xsd/settings-1.0.0.xsd">
 	<servers>
 		<server>
-			<id>github</id>
-			<username>x-access-token</username>
-			<password>${env.GITHUB_TOKEN}</password>
+			<id>cloudsmith</id>
+			<username>${env.REPO_USER_NAME}</username>
+			<password>${env.REPO_API_KEY}</password>
 		</server>
 	</servers>
 
@@ -16,10 +16,13 @@
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
+			<properties>
+				<archmix.repo.url>https://dl.cloudsmith.io/public/archmix/oss/maven/</archmix.repo.url>
+			</properties>
 			<repositories>
 				<repository>
-					<id>archmix</id>
-					<url>https://maven.pkg.github.com/archmix</url>
+					<id>archmix-oss</id>
+					<url>${archmix.repo.url}</url>
 				</repository>
 			</repositories>
 		</profile>
