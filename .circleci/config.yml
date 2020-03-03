@@ -36,10 +36,6 @@ workflows:
     jobs:
       - build:
           context: Archmix
-          filters:
-            branches:
-              ignore:
-                - gh-pages
       - release:
           context: Archmix
           requires:
