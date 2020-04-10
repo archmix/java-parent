@@ -4,7 +4,7 @@
 
   <groupId>org.archmix</groupId>
   <artifactId>java-parent</artifactId>
-  <version>1.8.1</version>
+  <version>1.8.2-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Archmix Java Parent</name>
@@ -187,7 +187,7 @@
     <connection>scm:git:ssh://github.com/archmix/${project.artifactId}.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/archmix/${project.artifactId}.git</developerConnection>
     <url>https://github.com/archmix/${project.artifactId}</url>
-    <tag>v1.8.1</tag>
+    <tag>v1.8</tag>
   </scm>
 
   <licenses>
