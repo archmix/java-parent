@@ -4,7 +4,7 @@
 
   <groupId>org.archmix</groupId>
   <artifactId>java-parent</artifactId>
-  <version>1.8.3-SNAPSHOT</version>
+  <version>1.11.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Archmix Java Parent</name>
@@ -12,11 +12,11 @@
   <url>https://archmix.org</url>
 
   <properties>
-    <javaVersion>1.8</javaVersion>
-    <lombokVersion>1.18.6</lombokVersion>
-    <junitVersion>4.11</junitVersion>
-    <mockitoVersion>1.10.8</mockitoVersion>
-    <sl4jVersion>1.7.21</sl4jVersion>
+    <javaVersion>11</javaVersion>
+    <lombokVersion>1.18.32</lombokVersion>
+    <junitVersion>4.13.2</junitVersion>
+    <mockitoVersion>5.11.0</mockitoVersion>
+    <sl4jVersion>2.0.13</sl4jVersion>
 
     <maven.failsafe.pluginVersion>2.18.1</maven.failsafe.pluginVersion>
     <maven.javadoc.pluginVersion>2.10.1</maven.javadoc.pluginVersion>
