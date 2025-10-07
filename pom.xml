@@ -223,11 +223,13 @@
   <distributionManagement>
     <snapshotRepository>
       <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <!--suppress UnresolvedMavenProperty -->
+      <url>${env.SONATYPE_SNAPSHOT_URL}</url>
     </snapshotRepository>
     <repository>
       <id>ossrh</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+      <!--suppress UnresolvedMavenProperty -->
+      <url>${env.SONATYPE_RELEASE_URL}</url>
     </repository>
   </distributionManagement>
 </project>
