@@ -13,21 +13,24 @@
 
   <properties>
     <javaVersion>11</javaVersion>
-    <lombokVersion>1.18.32</lombokVersion>
+    <lombokVersion>1.18.42</lombokVersion>
     <junitVersion>4.13.2</junitVersion>
-    <mockitoVersion>5.11.0</mockitoVersion>
-    <sl4jVersion>2.0.13</sl4jVersion>
+    <junit5Version>5.14.0</junit5Version>
+    <mockitoVersion>5.20.0</mockitoVersion>
+    <slf4jVersion>2.0.17</slf4jVersion>
 
-    <maven.failsafe.pluginVersion>2.18.1</maven.failsafe.pluginVersion>
+    <maven.failsafe.pluginVersion>3.5.4</maven.failsafe.pluginVersion>
     <maven.javadoc.pluginVersion>2.10.1</maven.javadoc.pluginVersion>
-    <maven.surefire.pluginVersion>3.0.0-M3</maven.surefire.pluginVersion>
-    <maven.compiler.pluginVersion>3.2</maven.compiler.pluginVersion>
-    <maven.resources.pluginVersion>2.7</maven.resources.pluginVersion>
-    <maven.dependency.pluginVersion>2.10</maven.dependency.pluginVersion>
+    <maven.surefire.pluginVersion>3.5.4</maven.surefire.pluginVersion>
+    <maven.compiler.pluginVersion>3.14.1</maven.compiler.pluginVersion>
+    <maven.resources.pluginVersion>3.3.1</maven.resources.pluginVersion>
+    <maven.dependency.pluginVersion>3.9.0</maven.dependency.pluginVersion>
     <maven.relase.pluginVersion>2.5.3</maven.relase.pluginVersion>
     <maven.source.pluginVersion>3.2.0</maven.source.pluginVersion>
-
     <maven.gpg.pluginVersion>1.5</maven.gpg.pluginVersion>
+
+    <centralPublishingMavenPluginVersion>0.9.0</centralPublishingMavenPluginVersion>
+    <ossrh.url>https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/</ossrh.url>
   </properties>
 
   <dependencyManagement>
@@ -43,7 +46,14 @@
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
-        <version>${sl4jVersion}</version>
+        <version>${slf4jVersion}</version>
+      </dependency>
+
+      <!-- Slf4j Api -->
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-simple</artifactId>
+        <version>${slf4jVersion}</version>
       </dependency>
 
       <!-- TEST -->
@@ -56,6 +66,14 @@
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
         <version>${junitVersion}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>
+        <version>${junit5Version}</version>
+        <scope>import</scope>
+        <type>pom</type>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -177,14 +195,13 @@
           </plugin>
 
           <plugin>
-            <groupId>org.sonatype.plugins</groupId>
-            <artifactId>nexus-staging-maven-plugin</artifactId>
-            <version>1.6.8</version>
+            <groupId>org.sonatype.central</groupId>
+            <artifactId>central-publishing-maven-plugin</artifactId>
+            <version>${centralPublishingMavenPluginVersion}</version>
             <extensions>true</extensions>
             <configuration>
-              <serverId>ossrh</serverId>
-              <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-              <autoReleaseAfterClose>true</autoReleaseAfterClose>
+              <publishingServerId>ossrh</publishingServerId>
+              <autoPublish>true</autoPublish>
             </configuration>
           </plugin>
         </plugins>
@@ -196,7 +213,7 @@
     <connection>scm:git:ssh://github.com/archmix/${project.artifactId}.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/archmix/${project.artifactId}.git</developerConnection>
     <url>https://github.com/archmix/${project.artifactId}</url>
-    <tag>v1.8</tag>
+    <tag>v1.11.0</tag>
   </scm>
 
   <licenses>
@@ -223,11 +240,11 @@
   <distributionManagement>
     <snapshotRepository>
       <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <url>${ossrh.url}</url>
     </snapshotRepository>
     <repository>
       <id>ossrh</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+      <url>${ossrh.url}</url>
     </repository>
   </distributionManagement>
 </project>
